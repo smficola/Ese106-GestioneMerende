@@ -1,0 +1,104 @@
+package gestionemerende;
+
+import java.time.LocalDateTime;
+import java.util.Vector;
+
+public class Ordine {
+	private String codice;
+	Classe classe;
+	private Vector<Articolo>articoli;
+	/**
+	 * @param codice
+	 * @param classe
+	 */
+	public Ordine(String codice, Classe classe) {
+		if(codice!=null)
+		{
+			this.codice = codice;
+			
+		}
+		else
+		{
+			throw new IllegalArgumentException("codice cannot be null");
+		}
+	
+		
+		
+	}
+	/**
+	 * @return the codice
+	 */
+	public String getCodice() {
+		return codice;
+	}
+	
+	/**
+	 * @return the classe
+	 */
+	public Classe getClasse() {
+		return classe;
+	}
+	/**
+	 * @param classe the classe to set
+	 */
+	public void setClasse(Classe classe) {
+		if(classe!=null)
+		{
+			this.classe = classe;
+		}
+		else
+		{
+			throw new IllegalArgumentException("classe cannot be null");
+		}
+	}
+	/**
+	 * @return the articoli
+	 */
+	public Vector<Articolo> getArticoli() {
+		return articoli;
+	}
+	public void addOrdine(Articolo a)
+	{
+		if(a!=null)
+		{
+			articoli.add(a);
+		}
+		else
+		{
+			throw new IllegalArgumentException("a cannot be null");
+		}
+	}
+	public int getNumeroArticoli() 
+	{
+		return articoli.size();
+	}
+	public double getCostoTotale()
+	{
+		int i=0;
+		for(Articolo a:articoli)
+		{
+			i+= a.getCostoUnitario();
+			
+		}
+		return i;
+	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Ordine [codice=" + codice + ", classe=" + classe
+				+ ", articoli=" + articoli + "]";
+	}
+	public void addArticolo(Articolo a) {
+		if(a != null)
+			articoli.add(a);
+		else
+			throw new IllegalArgumentException("a cannot be null");
+	}
+	
+	
+	
+	
+
+}

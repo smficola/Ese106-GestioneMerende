@@ -1,0 +1,59 @@
+package gestionemerende;
+
+import java.util.Vector;
+
+public class Istituto {
+	private String nome;
+	private Vector<Classe>classi;
+
+	/**
+	 * @param nome
+	 */
+	public Istituto(String nome) {
+		if(nome!=null)
+		{
+			this.nome = nome;
+		}
+		else
+		{
+			throw new IllegalArgumentException( "nome cannot be null");
+		}
+	}
+
+	/**
+	 * @return the nome
+	 */
+	public String getNome() {
+		return nome;
+	}
+
+	/**
+	 * @return the classi
+	 */
+	public Vector<Classe> getClassi() {
+		return classi;
+	}
+	public void addClasse(Classe c)
+	{
+		if(c!=null)
+		{
+			this.classi.add(c);
+		}
+		else
+		{
+			throw new IllegalArgumentException("c cannot be null");
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Istituto [nome=" + nome + ", classi=" + classi + "]";
+	}
+	
+	
+	
+
+}

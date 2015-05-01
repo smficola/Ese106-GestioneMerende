@@ -1,0 +1,63 @@
+package gestionemerende;
+
+import java.util.Vector;
+
+public class Classe {
+	private String nome;
+	private Vector<Ordine>ordini;
+
+	/**
+	 * @param nome
+	 */
+	public Classe(String nome) {
+		if(nome!=null)
+		{
+			this.nome = nome;
+		}
+		else
+		{
+			throw new IllegalArgumentException( "nome cannot be null");
+		    
+		}
+		ordini=new Vector<Ordine>();
+		
+	}
+
+	/**
+	 * @return the nome
+	 */
+	public String getNome() {
+		return nome;
+	}
+
+	/**
+	 * @return the ordini
+	 */
+	public Vector<Ordine> getOrdini() {
+		return ordini;
+	}
+	public void addOrdine(Ordine o) throws Exception {
+		if(o != null) {
+			for(Ordine p : this.ordini) {
+				if(p.getCodice().equals(o.getCodice()))
+					throw new Exception("Ordine " + o.getCodice() + " already present");
+			}
+			ordini.add(o);
+			o.setClasse(this);
+		}
+		else
+			throw new IllegalArgumentException("o cannot be null");
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Classe [nome=" + nome + ", ordini=" + ordini + "]";
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,35 @@
+package gestionemerende;
+
+public class Bibita extends Articolo {
+	private double quantità;
+
+	/**
+	 * @param codice
+	 * @param descrizione
+	 * @param costoUnitario
+	 * @param apportoCalorico
+	 * @param ordini
+	 * @param quantità
+	 */
+	public Bibita(String codice, String descrizione, double costoUnitario,
+			double apportoCalorico, Ordine ordini, double quantità) {
+		super(codice, descrizione, costoUnitario, apportoCalorico, ordini);
+		if(quantità>0)
+		{
+			this.quantità = quantità;
+		}
+		else
+		{
+			throw new IllegalArgumentException( " quantità must be bigger from 0");
+			
+		}
+		
+	}
+
+	/**
+	 * @return the quantità
+	 */
+	public double getQuantità() {
+		return quantità;
+	}
+}

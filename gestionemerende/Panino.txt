@@ -1,0 +1,45 @@
+package gestionemerende;
+
+public class Panino extends Articolo {
+	private boolean Vegetariano;
+	private boolean contieneCarneSuina;
+	/**
+	 * @param codice
+	 * @param descrizione
+	 * @param costoUnitario
+	 * @param apportoCalorico
+	 * @param ordini
+	 * @param vegetariano
+	 * @param contieneCarneSuina
+	 */
+	public Panino(String codice, String descrizione, double costoUnitario,
+			double apportoCalorico, Ordine ordini, boolean vegetariano,
+			boolean contieneCarneSuina) {
+		super(codice, descrizione, costoUnitario, apportoCalorico, ordini);
+		if(Vegetariano==true && contieneCarneSuina==true)
+		{
+			throw new IllegalArgumentException( "il panino non può essere vegetariano e contenere carne suina");
+		}
+		else
+		{
+			this.Vegetariano=Vegetariano;
+			this.contieneCarneSuina = contieneCarneSuina;
+		}
+		
+	}
+	/**
+	 * @return the vegetariano
+	 */
+	public boolean isVegetariano() {
+		return Vegetariano;
+	}
+	/**
+	 * @return the contieneCarneSuina
+	 */
+	public boolean isContieneCarneSuina() {
+		return contieneCarneSuina;
+	}
+	
+	
+
+}

@@ -1,0 +1,86 @@
+package gestionemerende;
+
+import java.util.Vector;
+
+public class Articolo {
+	private String codice;
+	private String descrizione;
+	private double costoUnitario;
+	private double apportoCalorico;
+	private Ordine ordini;
+	/**
+	 * @param codice
+	 * @param descrizione
+	 * @param costoUnitario
+	 * @param apportoCalorico
+	 */
+	public Articolo(String codice, String descrizione, double costoUnitario,
+			double apportoCalorico,Ordine ordini) {
+		if(this.codice!=null)
+		{
+			this.codice = codice;
+		}
+		else
+		{
+			throw new IllegalArgumentException( "codice cannot be null");
+		}
+		if(this.descrizione!=null)
+		{
+			this.descrizione = descrizione;
+		}
+		else
+		{
+			throw new IllegalArgumentException( "descrizione cannot be null");
+		}
+		if(costoUnitario>0)
+		{
+			this.costoUnitario = costoUnitario;
+		}
+		else
+		{
+			throw new IllegalArgumentException( " costoUnitario must be bigger from 0");
+		}
+		if(apportoCalorico>0)
+		{
+			this.apportoCalorico = apportoCalorico;
+		}
+		else
+		{
+			throw new IllegalArgumentException( " appoprtoCalorico must be bigger or equal from 0");
+		}
+	}
+	/**
+	 * @return the ordini
+	 */
+	public Ordine getOrdini() {
+		return ordini;
+	}
+	/**
+	 * @return the codice
+	 */
+	public String getCodice() {
+		return codice;
+	}
+	/**
+	 * @return the descrizione
+	 */
+	public String getDescrizione() {
+		return descrizione;
+	}
+	/**
+	 * @return the costoUnitario
+	 */
+	public double getCostoUnitario() {
+		return costoUnitario;
+	}
+	/**
+	 * @return the apportoCalorico
+	 */
+	public double getApportoCalorico() {
+		return apportoCalorico;
+	}
+	
+	
+
+}
+
